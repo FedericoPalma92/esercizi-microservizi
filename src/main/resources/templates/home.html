@@ -1,0 +1,26 @@
+<html lang="en" xmlns:th="https://thymeleaf.org">
+<!--
+Creo una pagina con un form contenente un input file e chiama un service storage per salvare il file
+-->
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <div th:if="${message}">
+        <h2 th:text="${message}"></h2>
+    </div>
+    <form action="/" method="post" enctype="multipart/form-data">
+        <input type="file" name="file" />
+        <input type="submit" value="Upload" />
+    </form>
+
+    <div>
+        <h2>Files</h2>
+        <ul>
+            <li th:each="file : ${files}">
+                <span th:text="${file}"></span>
+            </li>
+        </ul>
+</body>
+</html>
